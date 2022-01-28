@@ -1,5 +1,10 @@
 public class Main {
-    public static void main(String[] args) {
 
+    private static University university;
+
+    public static void main(String[] args) {
+        university= new University();
     }
+
+
 }
