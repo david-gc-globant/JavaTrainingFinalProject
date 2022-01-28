@@ -1,10 +1,11 @@
 package people;
 
-public abstract class Teacher {
+public abstract class Teacher extends Person{
 
     private double baseSalary;
 
-    public Teacher(double baseSalary) {
+    public Teacher(String name, double baseSalary) {
+        super(name);
         this.baseSalary = baseSalary;
     }
 
