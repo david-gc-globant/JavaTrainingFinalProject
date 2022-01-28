@@ -7,6 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         university = new University();
+
+        initializeTeachers();
     }
 
     public static void initializeTeachers() {
