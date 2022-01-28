@@ -1,60 +1,59 @@
 import people.Student;
 import people.Teacher;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 
 public class University {
 
-    private List<Teacher> teachers;
-    private List<Student> students;
-    private List<UniversityClass> universityClasses;
+    private HashMap<Long,Teacher> teachers;
+    private HashMap<Long, Student> students;
+    private HashMap<Long, UniversityClass> universityClasses;
 
     public University() {
-        teachers = new LinkedList<>();
-        students = new LinkedList<>();
-        universityClasses = new LinkedList<>();
+        teachers = new HashMap<>();
+        students = new HashMap<>();
+        universityClasses = new HashMap<>();
     }
 
-    public University(List<Teacher> teachers, List<Student> students, List<UniversityClass> universityClasses) {
+    public University(HashMap<Long,Teacher> teachers, HashMap<Long,Student> students, HashMap<Long,UniversityClass> universityClasses) {
         this.teachers = teachers;
         this.students = students;
         this.universityClasses = universityClasses;
     }
 
     public void addTeacher(Teacher teacher) {
-        teachers.add(teacher);
+        teachers.put(teacher.getId(),teacher);
     }
 
     public void addStudent(Student student) {
-        students.add(student);
+        students.put(student.getId(),student);
     }
 
     public void addUniversityClass(UniversityClass universityClass) {
-        universityClasses.add(universityClass);
+        universityClasses.put(universityClass.getCode(), universityClass);
     }
 
-    public List<Teacher> getTeachers() {
+    public HashMap<Long, Teacher> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
+    public void setTeachers(HashMap<Long, Teacher>  teachers) {
         this.teachers = teachers;
     }
 
-    public List<Student> getStudents() {
+    public HashMap<Long, Student>  getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(HashMap<Long, Student> students) {
         this.students = students;
     }
 
-    public List<UniversityClass> getUniversityClasses() {
+    public HashMap<Long, UniversityClass>  getUniversityClasses() {
         return universityClasses;
     }
 
-    public void setUniversityClasses(List<UniversityClass> universityClasses) {
+    public void setUniversityClasses(HashMap<Long, UniversityClass>  universityClasses) {
         this.universityClasses = universityClasses;
     }
 }

@@ -50,4 +50,12 @@ public class UniversityClass {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+
+    public long getCode() {
+        return code;
+    }
+
+    public void setCode(long code) {
+        this.code = code;
+    }
 }
