@@ -5,12 +5,14 @@ import java.util.List;
 
 public class UniversityClass {
 
+    private long code;
     private String name;
     private String assignedClassroom;
     private List<Student> studentList;
     private Teacher teacher;
 
-    public UniversityClass(String name, String assignedClassroom, List<Student> studentList, Teacher teacher) {
+    public UniversityClass(long code, String name, String assignedClassroom, List<Student> studentList, Teacher teacher) {
+        this.code = code;
         this.name = name;
         this.assignedClassroom = assignedClassroom;
         this.studentList = studentList;
