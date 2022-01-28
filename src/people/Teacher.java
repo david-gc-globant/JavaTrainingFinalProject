@@ -4,8 +4,8 @@ public abstract class Teacher extends Person{
 
     private double baseSalary;
 
-    public Teacher(String name, double baseSalary) {
-        super(name);
+    public Teacher(long id, String name, double baseSalary) {
+        super(id, name);
         this.baseSalary = baseSalary;
     }
 

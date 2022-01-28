@@ -4,12 +4,10 @@ import java.util.Calendar;
 
 public class Student extends Person {
 
-    private long id;
     private Calendar dateOfBirth;
 
-    public Student(String name, long id, Calendar dateOfBirth) {
-        super(name);
-        this.id = id;
+    public Student(long id, String name,  Calendar dateOfBirth) {
+        super(id, name);
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -24,14 +22,6 @@ public class Student extends Person {
         }
 
         return age;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Calendar getDateOfBirth() {
