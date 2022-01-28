@@ -25,4 +25,20 @@ public class Student extends Person {
 
         return age;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Calendar getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Calendar dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }
