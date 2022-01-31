@@ -58,4 +58,8 @@ public class UniversityClass {
     public void setCode(long code) {
         this.code = code;
     }
+
+    public String toString(){
+        return "Code: "+getCode()+" · Name: "+getName()+" · Assigned classroom: "+getAssignedClassroom()+" · Teacher: "+getTeacher().getName();
+    }
 }

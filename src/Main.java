@@ -30,6 +30,12 @@ public class Main {
                         System.out.println(entry.getValue().toString());
                     }
                     break;
+                case 2:
+                    System.out.println("List of classes: ");
+                    for (Map.Entry<Long, UniversityClass> entry : university.getUniversityClasses().entrySet()) {
+                        System.out.println(entry.getValue().toString());
+                    }
+                    break;
                 default:
                     System.out.println("Please, choose a valid option");
             }
