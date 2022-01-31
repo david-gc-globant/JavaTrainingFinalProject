@@ -6,6 +6,7 @@ import people.Teacher;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -17,6 +18,26 @@ public class Main {
         initializeTeachers();
         initializeStudents();
         initializeUniversityClasses();
+
+        Scanner scanner= new Scanner(System.in);
+
+        boolean stopExecution=false;
+        while(!stopExecution){
+            showMenu();
+            scanner.nextInt();
+        }
+    }
+
+    public static void showMenu(){
+        System.out.println("*****************************\n"+
+                "MENU: \n"+
+                "1. List Professors \n"+
+                "2. List all the classes \n"+
+                "3. Add a new student \n"+
+                "4. Add a new class \n"+
+                "5. List a student's classes \n"+
+                "6. Exit. \n"+
+                "*******************************");
     }
 
     public static void initializeUniversityClasses(){
