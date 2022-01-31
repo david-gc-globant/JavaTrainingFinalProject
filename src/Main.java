@@ -3,10 +3,7 @@ import people.PartTimeTeacher;
 import people.Student;
 import people.Teacher;
 
-import java.util.GregorianCalendar;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -24,7 +21,18 @@ public class Main {
         boolean stopExecution=false;
         while(!stopExecution){
             showMenu();
-            scanner.nextInt();
+            int choice = scanner.nextInt();
+
+            switch(choice){
+                case 1:
+                    System.out.println("List of teachers: ");
+                    for (Map.Entry<Long, Teacher> entry : university.getTeachers().entrySet()) {
+                        System.out.println(entry.getValue().toString());
+                    }
+                    break;
+                default:
+                    System.out.println("Please, choose a valid option");
+            }
         }
     }
 
@@ -89,11 +97,11 @@ public class Main {
     }
 
     public static void initializeTeachers() {
-        FullTimeTeacher fullTimeTeacher1 = new FullTimeTeacher(2123,"Luisa", 8000000, 15);
-        FullTimeTeacher fullTimeTeacher2 = new FullTimeTeacher(2234,"Raul", 4000000, 2);
+        FullTimeTeacher fullTimeTeacher1 = new FullTimeTeacher(2123,"Luisa", 80, 15);
+        FullTimeTeacher fullTimeTeacher2 = new FullTimeTeacher(2234,"Raul", 40, 2);
 
-        PartTimeTeacher partTimeTeacher1 = new PartTimeTeacher(3123,"Valencio", 2300000, 40);
-        PartTimeTeacher partTimeTeacher2 = new PartTimeTeacher(3234, "Marta", 2300000, 45);
+        PartTimeTeacher partTimeTeacher1 = new PartTimeTeacher(3123,"Valencio", 23, 40);
+        PartTimeTeacher partTimeTeacher2 = new PartTimeTeacher(3234, "Marta", 23, 45);
 
         university.addTeacher(fullTimeTeacher1);
         university.addTeacher(fullTimeTeacher2);

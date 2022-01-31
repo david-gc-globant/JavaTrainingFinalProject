@@ -1,6 +1,6 @@
 package people;
 
-public abstract class Teacher extends Person{
+public abstract class Teacher extends Person {
 
     private double baseSalary;
 
@@ -17,5 +17,9 @@ public abstract class Teacher extends Person{
 
     public void setBaseSalary(double baseSalary) {
         this.baseSalary = baseSalary;
+    }
+
+    public String toString() {
+        return "Id: " + getId() + " · Name: " + getName() + " · Salary: " + getSalary();
     }
 }
