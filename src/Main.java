@@ -33,32 +33,35 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("List of classes: ");
-                    for (Map.Entry<Long, UniversityClass> entry : university.getUniversityClasses().entrySet()) {
-                        System.out.println("[ "+entry.getKey()+" ] "+entry.getValue().getName());
-                    }
-
-                    System.out.println("        *-*-*-*-*-*-*-*-*-*-*-*-*   \n"+
-                                       "        Please, enter the code of a class to see its details or enter -1 to skip this step.");
-                    int choiceC= scanner.nextInt();
-
-                    UniversityClass universityClass= university.findUniversityClassByCode(choiceC);
-
-                    if(choiceC==-1){
-                        break;
-                    }else if (universityClass==null){
-                        System.out.println("Code not found");
-                    }else{
-                        System.out.println(universityClass);
-                        System.out.println("Students: ");
-                        for(Student student: universityClass.getStudentList()){
-                            System.out.println(student.toString());
-                        }
-                    }
+                    listClassesMenu();
 
                     break;
                 default:
                     System.out.println("Please, choose a valid option");
+            }
+        }
+    }
+
+    public static void listClassesMenu(){
+        System.out.println("List of classes: ");
+        for (Map.Entry<Long, UniversityClass> entry : university.getUniversityClasses().entrySet()) {
+            System.out.println("[ "+entry.getKey()+" ] "+entry.getValue().getName());
+        }
+        System.out.println("        *-*-*-*-*-*-*-*-*-*-*-*-*   \n"+
+                "        Please, enter the code of a class to see its details or enter -1 to skip this step.");
+        int choiceC= scanner.nextInt();
+
+        UniversityClass universityClass= university.findUniversityClassByCode(choiceC);
+
+        if(choiceC==-1){
+            return;
+        }else if (universityClass==null){
+            System.out.println("Code not found");
+        }else{
+            System.out.println(universityClass);
+            System.out.println("Students: ");
+            for(Student student: universityClass.getStudentList()){
+                System.out.println(student.toString());
             }
         }
     }
