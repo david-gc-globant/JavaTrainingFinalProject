@@ -9,6 +9,8 @@ public class Main {
 
     private static University university;
 
+    private static Scanner scanner;
+
     public static void main(String[] args) {
         university = new University();
 
@@ -16,7 +18,7 @@ public class Main {
         initializeStudents();
         initializeUniversityClasses();
 
-        Scanner scanner= new Scanner(System.in);
+        scanner= new Scanner(System.in);
 
         boolean stopExecution=false;
         while(!stopExecution){
@@ -53,6 +55,7 @@ public class Main {
                             System.out.println(student.toString());
                         }
                     }
+
                     break;
                 default:
                     System.out.println("Please, choose a valid option");
