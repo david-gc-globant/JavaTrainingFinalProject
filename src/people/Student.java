@@ -31,4 +31,8 @@ public class Student extends Person {
     public void setDateOfBirth(Calendar dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public String toString(){
+        return "Id: "+getId()+" · Name: "+getName()+" · Age: "+getAge();
+    }
 }
