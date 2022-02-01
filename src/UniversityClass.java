@@ -11,8 +11,11 @@ public class UniversityClass {
     private List<Student> studentList;
     private Teacher teacher;
 
-    public UniversityClass(long code, String name, String assignedClassroom, List<Student> studentList, Teacher teacher) {
-        this.code = code;
+    private static long codeCounter=0;
+
+    public UniversityClass(String name, String assignedClassroom, List<Student> studentList, Teacher teacher) {
+        codeCounter++;
+        setCode(codeCounter);
         this.name = name;
         this.assignedClassroom = assignedClassroom;
         this.studentList = studentList;

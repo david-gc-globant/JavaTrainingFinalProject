@@ -6,8 +6,8 @@ public class Student extends Person {
 
     private Calendar dateOfBirth;
 
-    public Student(long id, String name,  Calendar dateOfBirth) {
-        super(id, name);
+    public Student(String name,  Calendar dateOfBirth) {
+        super(name);
         this.dateOfBirth = dateOfBirth;
     }
 

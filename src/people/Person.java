@@ -5,9 +5,12 @@ public abstract class Person {
     private long id;
     private String name;
 
-    public Person(long id, String name) {
-        this.id = id;
+    private static long idCounter=0;
+
+    public Person(String name) {
         this.name = name;
+        idCounter++;
+        setId(idCounter);
     }
 
     public long getId() {
