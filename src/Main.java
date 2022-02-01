@@ -1,8 +1,8 @@
+import exceptions.DataNotFoundException;
 import people.FullTimeTeacher;
 import people.PartTimeTeacher;
 import people.Student;
 import people.Teacher;
-
 import java.util.*;
 
 public class Main {
@@ -46,21 +46,29 @@ public class Main {
         for (Map.Entry<Long, UniversityClass> entry : university.getUniversityClasses().entrySet()) {
             System.out.println("[ "+entry.getKey()+" ] "+entry.getValue().getName());
         }
-        System.out.println("        *-*-*-*-*-*-*-*-*-*-*-*-*   \n"+
-                "        Please, enter the code of a class to see its details or enter -1 to skip this step.");
-        int choiceC= scanner.nextInt();
 
-        UniversityClass universityClass= university.findUniversityClassByCode(choiceC);
+        boolean stopExecution=false;
+        while(!stopExecution) {
 
-        if(choiceC==-1){
-            return;
-        }else if (universityClass==null){
-            System.out.println("Code not found");
-        }else{
-            System.out.println(universityClass);
-            System.out.println("Students: ");
-            for(Student student: universityClass.getStudentList()){
-                System.out.println(student.toString());
+            System.out.println("        *-*-*-*-*-*-*-*-*-*-*-*-*   \n" +
+                    "        Please, enter the code of a class to see its details or enter -1 to skip this step.");
+            int choiceC = scanner.nextInt();
+
+            if (choiceC == -1) {
+                stopExecution=true;
+            } else {
+                try {
+                    UniversityClass universityClass = university.findUniversityClassByCode(choiceC);
+
+                    System.out.println(universityClass);
+                    System.out.println("Students: ");
+                    for (Student student : universityClass.getStudentList()) {
+                        System.out.println(student.toString());
+                    }
+
+                } catch (DataNotFoundException dataNotFoundException) {
+                    System.out.println(dataNotFoundException.getMessage());
+                }
             }
         }
     }
@@ -79,50 +87,53 @@ public class Main {
 
     public static void initializeUniversityClasses(){
 
-        List<Student> studentsClass1 = new LinkedList<>();
-        studentsClass1.add(university.findStudentById(5));
-        studentsClass1.add(university.findStudentById(6));
-        studentsClass1.add(university.findStudentById(7));
+        try {
+            List<Student> studentsClass1 = new LinkedList<>();
+            studentsClass1.add(university.findStudentById(5));
+            studentsClass1.add(university.findStudentById(6));
+            studentsClass1.add(university.findStudentById(7));
 
-        Teacher teacherClass1= university.findTeacherById(3);
+            Teacher teacherClass1 = university.findTeacherById(3);
 
-        UniversityClass universityClass1= new UniversityClass("Calculus I", "Room 1", studentsClass1, teacherClass1);
+            List<Student> studentsClass2 = new LinkedList<>();
+            studentsClass2.add(university.findStudentById(6));
+            studentsClass2.add(university.findStudentById(7));
+            studentsClass2.add(university.findStudentById(8));
+            studentsClass2.add(university.findStudentById(9));
 
-        List<Student> studentsClass2 = new LinkedList<>();
-        studentsClass2.add(university.findStudentById(6));
-        studentsClass2.add(university.findStudentById(7));
-        studentsClass2.add(university.findStudentById(8));
-        studentsClass2.add(university.findStudentById(9));
+            Teacher teacherClass2 = university.findTeacherById(1);
 
-        Teacher teacherClass2= university.findTeacherById(1);
+            List<Student> studentsClass3 = new LinkedList<>();
+            studentsClass3.add(university.findStudentById(10));
+            studentsClass3.add(university.findStudentById(5));
 
-        UniversityClass universityClass2= new UniversityClass("OOP", "Room 1", studentsClass2, teacherClass2);
+            Teacher teacherClass3 = university.findTeacherById(2);
 
-        List<Student> studentsClass3 = new LinkedList<>();
-        studentsClass3.add(university.findStudentById(10));
-        studentsClass3.add(university.findStudentById(5));
+            List<Student> studentsClass4 = new LinkedList<>();
+            studentsClass4.add(university.findStudentById(5));
+            studentsClass4.add(university.findStudentById(6));
+            studentsClass4.add(university.findStudentById(7));
+            studentsClass4.add(university.findStudentById(8));
+            studentsClass4.add(university.findStudentById(9));
+            studentsClass4.add(university.findStudentById(10));
 
-        Teacher teacherClass3= university.findTeacherById(2);
+            Teacher teacherClass4 = university.findTeacherById(4);
 
-        UniversityClass universityClass3= new UniversityClass("Databases", "Room 2", studentsClass3, teacherClass3);
-
-        List<Student> studentsClass4 = new LinkedList<>();
-        studentsClass4.add(university.findStudentById(5));
-        studentsClass4.add(university.findStudentById(6));
-        studentsClass4.add(university.findStudentById(7));
-        studentsClass4.add(university.findStudentById(8));
-        studentsClass4.add(university.findStudentById(9));
-        studentsClass4.add(university.findStudentById(10));
-
-        Teacher teacherClass4= university.findTeacherById(4);
-
-        UniversityClass universityClass4= new UniversityClass("Data Structures", "Room 3", studentsClass4, teacherClass4);
+            UniversityClass universityClass1= new UniversityClass("Calculus I", "Room 1", studentsClass1, teacherClass1);
+            UniversityClass universityClass2= new UniversityClass("OOP", "Room 1", studentsClass2, teacherClass2);
+            UniversityClass universityClass3= new UniversityClass("Databases", "Room 2", studentsClass3, teacherClass3);
+            UniversityClass universityClass4= new UniversityClass("Data Structures", "Room 3", studentsClass4, teacherClass4);
 
 
-        university.addUniversityClass(universityClass1);
-        university.addUniversityClass(universityClass2);
-        university.addUniversityClass(universityClass3);
-        university.addUniversityClass(universityClass4);
+            university.addUniversityClass(universityClass1);
+            university.addUniversityClass(universityClass2);
+            university.addUniversityClass(universityClass3);
+            university.addUniversityClass(universityClass4);
+
+        }catch(DataNotFoundException dataNotFoundException){
+            System.out.println(dataNotFoundException.getMessage());
+        }
+
     }
 
     public static void initializeTeachers() {

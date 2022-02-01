@@ -1,6 +1,8 @@
+import exceptions.DataNotFoundException;
 import people.Student;
 import people.Teacher;
 
+import javax.xml.crypto.Data;
 import java.util.HashMap;
 
 public class University {
@@ -21,15 +23,18 @@ public class University {
         this.universityClasses = universityClasses;
     }
 
-    public Teacher findTeacherById(long id) {
+    public Teacher findTeacherById(long id) throws DataNotFoundException {
+        if(!teachers.containsKey(id)) throw new DataNotFoundException("Teacher with id "+id+" not found.");
         return teachers.get(id);
     }
 
-    public Student findStudentById(long id){
+    public Student findStudentById(long id) throws DataNotFoundException{
+        if(!students.containsKey(id)) throw new DataNotFoundException("Student with id "+id+" not found.");
         return students.get(id);
     }
 
-    public UniversityClass findUniversityClassByCode(long code){
+    public UniversityClass findUniversityClassByCode(long code) throws DataNotFoundException{
+        if(!universityClasses.containsKey(code)) throw new DataNotFoundException("Class with code "+code+" not found.");
         return universityClasses.get(code);
     }
 
