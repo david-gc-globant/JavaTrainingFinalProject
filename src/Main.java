@@ -3,6 +3,8 @@ import people.FullTimeTeacher;
 import people.PartTimeTeacher;
 import people.Student;
 import people.Teacher;
+
+import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
@@ -24,6 +26,7 @@ public class Main {
         while(!stopExecution){
             showMenu();
             int choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch(choice){
                 case 1:
@@ -35,9 +38,57 @@ public class Main {
                 case 2:
                     listClassesMenu();
                     break;
+                case 3:
+                    addNewStudentToClass();
+                    break;
                 default:
                     System.out.println("Please, choose a valid option");
             }
+        }
+    }
+
+    public static void addNewStudentToClass(){
+
+        UniversityClass universityClass;
+
+        while(true){
+            System.out.println("Please, enter the code of the class.");
+            long code= scanner.nextLong();
+            scanner.nextLine();
+            try {
+                universityClass= university.findUniversityClassByCode(code);
+
+                break;
+            } catch (DataNotFoundException dataNotFoundException) {
+                System.out.println(dataNotFoundException.getMessage());
+            }
+        }
+
+        System.out.println("Please, enter the student's name.");
+        String name= scanner.nextLine();
+
+
+
+        while(true){
+            System.out.println("Please, enter the student's date of birth in the following format: YYYY-MM-DD");
+            String dateOfBirth= scanner.nextLine();
+
+            String[] dateOfBirthParts = dateOfBirth.split("-");
+
+            if(dateOfBirthParts.length!=3) {
+                System.out.println("Date of birth not valid.");
+                continue;
+            }
+
+            int yearOfBirth= Integer.parseInt(dateOfBirthParts[0]);
+            int monthOfBirth= Integer.parseInt(dateOfBirthParts[1])-1;
+            int dayOfBirth= Integer.parseInt(dateOfBirthParts[2]);
+
+            Student student= new Student(name, new GregorianCalendar(yearOfBirth, monthOfBirth,dayOfBirth));
+
+            university.addStudent(student);
+            universityClass.addStudent(student);
+            break;
         }
     }
 
@@ -53,6 +104,7 @@ public class Main {
             System.out.println("        *-*-*-*-*-*-*-*-*-*-*-*-*   \n" +
                     "        Please, enter the code of a class to see its details or enter -1 to skip this step.");
             int choiceC = scanner.nextInt();
+            scanner.nextLine();
 
             if (choiceC == -1) {
                 stopExecution=true;
@@ -78,7 +130,7 @@ public class Main {
                 "MENU: \n"+
                 "1. List Professors \n"+
                 "2. List all the classes \n"+
-                "3. Add a new student \n"+
+                "3. Add a new student to an existing class\n"+
                 "4. Add a new class \n"+
                 "5. List a student's classes \n"+
                 "6. Exit. \n"+
@@ -150,7 +202,7 @@ public class Main {
     }
 
     public static void initializeStudents(){
-        Student student1 = new Student("Laura",  new GregorianCalendar(2001, 05,18));
+        Student student1 = new Student("Laura",  new GregorianCalendar(2001, 5,18));
         Student student2 = new Student("Pedro",  new GregorianCalendar(1997,8,12));
         Student student3 = new Student("Ana",  new GregorianCalendar(1999, 2,23));
         Student student4 = new Student("Antonio", new GregorianCalendar(2003, 4,1));

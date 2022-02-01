@@ -22,6 +22,10 @@ public class UniversityClass {
         this.teacher = teacher;
     }
 
+    public void addStudent(Student student){
+        studentList.add(student);
+    }
+
     public String getName() {
         return name;
     }
