@@ -45,6 +45,9 @@ public class Main {
                 case 5:
                     listStudentsClasses();
                     break;
+                case 6:
+                    stopExecution=true;
+                    break;
                 default:
                     System.out.println("Please, choose a valid option");
             }
