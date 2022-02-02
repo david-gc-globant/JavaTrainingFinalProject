@@ -158,8 +158,8 @@ public class Main {
 
                     System.out.println(universityClass);
                     System.out.println("Students: ");
-                    for (Student student : universityClass.getStudentList()) {
-                        System.out.println(student.toString());
+                    for (Map.Entry<Long, Student> entry : universityClass.getStudents().entrySet()) {
+                        System.out.println(entry.getValue().toString());
                     }
 
                 } catch (DataNotFoundException dataNotFoundException) {
@@ -184,42 +184,39 @@ public class Main {
     public static void initializeUniversityClasses() {
 
         try {
-            List<Student> studentsClass1 = new LinkedList<>();
-            studentsClass1.add(university.findStudentById(5));
-            studentsClass1.add(university.findStudentById(6));
-            studentsClass1.add(university.findStudentById(7));
 
-            Teacher teacherClass1 = university.findTeacherById(3);
+            UniversityClass universityClass1 = new UniversityClass("Calculus I", "Room 1");
+            UniversityClass universityClass2 = new UniversityClass("OOP", "Room 1");
+            UniversityClass universityClass3 = new UniversityClass("Databases", "Room 2");
+            UniversityClass universityClass4 = new UniversityClass("Data Structures", "Room 3");
 
-            List<Student> studentsClass2 = new LinkedList<>();
-            studentsClass2.add(university.findStudentById(6));
-            studentsClass2.add(university.findStudentById(7));
-            studentsClass2.add(university.findStudentById(8));
-            studentsClass2.add(university.findStudentById(9));
 
-            Teacher teacherClass2 = university.findTeacherById(1);
+            universityClass1.addStudent(university.findStudentById(5));
+            universityClass1.addStudent(university.findStudentById(6));
+            universityClass1.addStudent(university.findStudentById(7));
 
-            List<Student> studentsClass3 = new LinkedList<>();
-            studentsClass3.add(university.findStudentById(10));
-            studentsClass3.add(university.findStudentById(5));
+            universityClass1.setTeacher(university.findTeacherById(3));
 
-            Teacher teacherClass3 = university.findTeacherById(2);
+            universityClass2.addStudent(university.findStudentById(6));
+            universityClass2.addStudent(university.findStudentById(7));
+            universityClass2.addStudent(university.findStudentById(8));
+            universityClass2.addStudent(university.findStudentById(9));
 
-            List<Student> studentsClass4 = new LinkedList<>();
-            studentsClass4.add(university.findStudentById(5));
-            studentsClass4.add(university.findStudentById(6));
-            studentsClass4.add(university.findStudentById(7));
-            studentsClass4.add(university.findStudentById(8));
-            studentsClass4.add(university.findStudentById(9));
-            studentsClass4.add(university.findStudentById(10));
+            universityClass2.setTeacher(university.findTeacherById(1));
 
-            Teacher teacherClass4 = university.findTeacherById(4);
+            universityClass3.addStudent(university.findStudentById(10));
+            universityClass3.addStudent(university.findStudentById(5));
 
-            UniversityClass universityClass1 = new UniversityClass("Calculus I", "Room 1", studentsClass1, teacherClass1);
-            UniversityClass universityClass2 = new UniversityClass("OOP", "Room 1", studentsClass2, teacherClass2);
-            UniversityClass universityClass3 = new UniversityClass("Databases", "Room 2", studentsClass3, teacherClass3);
-            UniversityClass universityClass4 = new UniversityClass("Data Structures", "Room 3", studentsClass4, teacherClass4);
+            universityClass3.setTeacher(university.findTeacherById(2));
 
+            universityClass4.addStudent(university.findStudentById(5));
+            universityClass4.addStudent(university.findStudentById(6));
+            universityClass4.addStudent(university.findStudentById(7));
+            universityClass4.addStudent(university.findStudentById(8));
+            universityClass4.addStudent(university.findStudentById(9));
+            universityClass4.addStudent(university.findStudentById(10));
+
+            universityClass4.setTeacher(university.findTeacherById(4));
 
             university.addUniversityClass(universityClass1);
             university.addUniversityClass(universityClass2);

@@ -1,22 +1,21 @@
 import people.Student;
 import people.Teacher;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 
 public class UniversityClass {
 
     private long code;
     private String name;
     private String assignedClassroom;
-    private List<Student> studentList;
+    private HashMap<Long, Student> students;
     private Teacher teacher;
 
     private static long codeCounter=0;
 
-    public UniversityClass(String name, String assignedClassroom, List<Student> studentList, Teacher teacher) {
+    public UniversityClass(String name, String assignedClassroom, HashMap<Long, Student> students, Teacher teacher) {
         this(name, assignedClassroom);
-        this.studentList = studentList;
+        this.students = students;
         this.teacher = teacher;
     }
 
@@ -26,11 +25,11 @@ public class UniversityClass {
         this.name = name;
         this.assignedClassroom = assignedClassroom;
 
-        this.studentList= new LinkedList<>();
+        this.students = new HashMap<>();
     }
 
     public void addStudent(Student student){
-        studentList.add(student);
+        students.put(student.getId(), student);
     }
 
     public String getName() {
@@ -49,12 +48,12 @@ public class UniversityClass {
         this.assignedClassroom = assignedClassroom;
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
+    public HashMap<Long, Student> getStudents() {
+        return students;
     }
 
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
+    public void setStudents(HashMap<Long, Student> students) {
+        this.students = students;
     }
 
     public Teacher getTeacher() {
