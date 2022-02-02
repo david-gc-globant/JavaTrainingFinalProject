@@ -1,6 +1,7 @@
 import people.Student;
 import people.Teacher;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class UniversityClass {
@@ -14,12 +15,18 @@ public class UniversityClass {
     private static long codeCounter=0;
 
     public UniversityClass(String name, String assignedClassroom, List<Student> studentList, Teacher teacher) {
+        this(name, assignedClassroom);
+        this.studentList = studentList;
+        this.teacher = teacher;
+    }
+
+    public UniversityClass(String name, String assignedClassroom){
         codeCounter++;
         setCode(codeCounter);
         this.name = name;
         this.assignedClassroom = assignedClassroom;
-        this.studentList = studentList;
-        this.teacher = teacher;
+
+        this.studentList= new LinkedList<>();
     }
 
     public void addStudent(Student student){

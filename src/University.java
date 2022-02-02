@@ -24,12 +24,12 @@ public class University {
     }
 
     public Teacher findTeacherById(long id) throws DataNotFoundException {
-        if(!teachers.containsKey(id)) throw new DataNotFoundException("Teacher with id "+id+" not found.");
+        if(!teachers.containsKey(id)) throw new DataNotFoundException("Teacher with ID "+id+" not found.");
         return teachers.get(id);
     }
 
     public Student findStudentById(long id) throws DataNotFoundException{
-        if(!students.containsKey(id)) throw new DataNotFoundException("Student with id "+id+" not found.");
+        if(!students.containsKey(id)) throw new DataNotFoundException("Student with ID "+id+" not found.");
         return students.get(id);
     }
 
