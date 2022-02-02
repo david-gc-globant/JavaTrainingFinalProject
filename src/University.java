@@ -4,6 +4,9 @@ import people.Teacher;
 
 import javax.xml.crypto.Data;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class University {
 
@@ -23,18 +26,30 @@ public class University {
         this.universityClasses = universityClasses;
     }
 
+    public List<UniversityClass> getStudentsClasses(long studentID) {
+
+        List<UniversityClass> studentsClasses = new LinkedList<>();
+
+        for (Map.Entry<Long, UniversityClass> entry : getUniversityClasses().entrySet()) {
+            if(entry.getValue().hasStudent(studentID)) studentsClasses.add(entry.getValue());
+        }
+
+        return studentsClasses;
+    }
+
     public Teacher findTeacherById(long id) throws DataNotFoundException {
-        if(!teachers.containsKey(id)) throw new DataNotFoundException("Teacher with ID "+id+" not found.");
+        if (!teachers.containsKey(id)) throw new DataNotFoundException("Teacher with ID " + id + " not found.");
         return teachers.get(id);
     }
 
-    public Student findStudentById(long id) throws DataNotFoundException{
-        if(!students.containsKey(id)) throw new DataNotFoundException("Student with ID "+id+" not found.");
+    public Student findStudentById(long id) throws DataNotFoundException {
+        if (!students.containsKey(id)) throw new DataNotFoundException("Student with ID " + id + " not found.");
         return students.get(id);
     }
 
-    public UniversityClass findUniversityClassByCode(long code) throws DataNotFoundException{
-        if(!universityClasses.containsKey(code)) throw new DataNotFoundException("Class with code "+code+" not found.");
+    public UniversityClass findUniversityClassByCode(long code) throws DataNotFoundException {
+        if (!universityClasses.containsKey(code))
+            throw new DataNotFoundException("Class with code " + code + " not found.");
         return universityClasses.get(code);
     }
 

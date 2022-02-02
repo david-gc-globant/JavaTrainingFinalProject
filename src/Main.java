@@ -42,10 +42,30 @@ public class Main {
                 case 4:
                     addNewUniversityClass();
                     break;
+                case 5:
+                    listStudentsClasses();
+                    break;
                 default:
                     System.out.println("Please, choose a valid option");
             }
         }
+    }
+
+    public static void listStudentsClasses(){
+        System.out.println("Please, enter the student's ID");
+        long studentID = Long.parseLong(scanner.nextLine());
+
+        List<UniversityClass> studentsClasses= university.getStudentsClasses(studentID);
+
+        if(studentsClasses.isEmpty()){
+            System.out.println("No classes were found for this ID. ");
+        }else{
+            System.out.println("The student with ID "+studentID+" is included in the following classes: ");
+            for(UniversityClass universityClass: studentsClasses){
+                System.out.println(universityClass.toString());
+            }
+        }
+
     }
 
     public static void addNewUniversityClass() {

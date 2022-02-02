@@ -11,7 +11,7 @@ public class UniversityClass {
     private HashMap<Long, Student> students;
     private Teacher teacher;
 
-    private static long codeCounter=0;
+    private static long codeCounter = 0;
 
     public UniversityClass(String name, String assignedClassroom, HashMap<Long, Student> students, Teacher teacher) {
         this(name, assignedClassroom);
@@ -19,7 +19,7 @@ public class UniversityClass {
         this.teacher = teacher;
     }
 
-    public UniversityClass(String name, String assignedClassroom){
+    public UniversityClass(String name, String assignedClassroom) {
         codeCounter++;
         setCode(codeCounter);
         this.name = name;
@@ -28,7 +28,11 @@ public class UniversityClass {
         this.students = new HashMap<>();
     }
 
-    public void addStudent(Student student){
+    public boolean hasStudent(long studentID) {
+        return students.containsKey(studentID);
+    }
+
+    public void addStudent(Student student) {
         students.put(student.getId(), student);
     }
 
@@ -72,7 +76,7 @@ public class UniversityClass {
         this.code = code;
     }
 
-    public String toString(){
-        return "Code: "+getCode()+" · Name: "+getName()+" · Assigned classroom: "+getAssignedClassroom()+" · Teacher: "+getTeacher().getName();
+    public String toString() {
+        return "Code: " + getCode() + " · Name: " + getName() + " · Assigned classroom: " + getAssignedClassroom() + " · Teacher: " + getTeacher().getName();
     }
 }
