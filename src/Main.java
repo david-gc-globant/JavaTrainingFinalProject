@@ -210,43 +210,43 @@ public class Main {
 
         try {
 
-            UniversityClass universityClass1 = new UniversityClass("Calculus I", "Room 1");
-            UniversityClass universityClass2 = new UniversityClass("OOP", "Room 1");
-            UniversityClass universityClass3 = new UniversityClass("Databases", "Room 2");
-            UniversityClass universityClass4 = new UniversityClass("Data Structures", "Room 3");
+            UniversityClass calculusClass = new UniversityClass("Calculus I", "Room 1");
+            UniversityClass javaClass = new UniversityClass("Java", "Room 1");
+            UniversityClass databasesClass = new UniversityClass("Databases", "Room 2");
+            UniversityClass dataStructuresClass = new UniversityClass("Data Structures", "Room 3");
 
 
-            universityClass1.addStudent(university.findStudentById(5));
-            universityClass1.addStudent(university.findStudentById(6));
-            universityClass1.addStudent(university.findStudentById(7));
+            calculusClass.addStudent(university.findStudentById(5));
+            calculusClass.addStudent(university.findStudentById(6));
+            calculusClass.addStudent(university.findStudentById(7));
 
-            universityClass1.setTeacher(university.findTeacherById(3));
+            calculusClass.setTeacher(university.findTeacherById(3));
 
-            universityClass2.addStudent(university.findStudentById(6));
-            universityClass2.addStudent(university.findStudentById(7));
-            universityClass2.addStudent(university.findStudentById(8));
-            universityClass2.addStudent(university.findStudentById(9));
+            javaClass.addStudent(university.findStudentById(6));
+            javaClass.addStudent(university.findStudentById(7));
+            javaClass.addStudent(university.findStudentById(8));
+            javaClass.addStudent(university.findStudentById(9));
 
-            universityClass2.setTeacher(university.findTeacherById(1));
+            javaClass.setTeacher(university.findTeacherById(1));
 
-            universityClass3.addStudent(university.findStudentById(10));
-            universityClass3.addStudent(university.findStudentById(5));
+            databasesClass.addStudent(university.findStudentById(10));
+            databasesClass.addStudent(university.findStudentById(5));
 
-            universityClass3.setTeacher(university.findTeacherById(2));
+            databasesClass.setTeacher(university.findTeacherById(2));
 
-            universityClass4.addStudent(university.findStudentById(5));
-            universityClass4.addStudent(university.findStudentById(6));
-            universityClass4.addStudent(university.findStudentById(7));
-            universityClass4.addStudent(university.findStudentById(8));
-            universityClass4.addStudent(university.findStudentById(9));
-            universityClass4.addStudent(university.findStudentById(10));
+            dataStructuresClass.addStudent(university.findStudentById(5));
+            dataStructuresClass.addStudent(university.findStudentById(6));
+            dataStructuresClass.addStudent(university.findStudentById(7));
+            dataStructuresClass.addStudent(university.findStudentById(8));
+            dataStructuresClass.addStudent(university.findStudentById(9));
+            dataStructuresClass.addStudent(university.findStudentById(10));
 
-            universityClass4.setTeacher(university.findTeacherById(4));
+            dataStructuresClass.setTeacher(university.findTeacherById(4));
 
-            university.addUniversityClass(universityClass1);
-            university.addUniversityClass(universityClass2);
-            university.addUniversityClass(universityClass3);
-            university.addUniversityClass(universityClass4);
+            university.addUniversityClass(calculusClass);
+            university.addUniversityClass(javaClass);
+            university.addUniversityClass(databasesClass);
+            university.addUniversityClass(dataStructuresClass);
 
         } catch (DataNotFoundException dataNotFoundException) {
             System.out.println(dataNotFoundException.getMessage());
@@ -255,32 +255,32 @@ public class Main {
     }
 
     public static void initializeTeachers() {
-        FullTimeTeacher fullTimeTeacher1 = new FullTimeTeacher("Luisa", 80, 15);
-        FullTimeTeacher fullTimeTeacher2 = new FullTimeTeacher("Raul", 40, 2);
+        FullTimeTeacher luisaFTT = new FullTimeTeacher("Luisa", 80, 15);
+        FullTimeTeacher raulFTT = new FullTimeTeacher("Raul", 40, 2);
 
-        PartTimeTeacher partTimeTeacher1 = new PartTimeTeacher("Valencio", 23, 40);
-        PartTimeTeacher partTimeTeacher2 = new PartTimeTeacher("Marta", 23, 45);
+        PartTimeTeacher valencioPTT = new PartTimeTeacher("Valencio", 23, 40);
+        PartTimeTeacher martaPTT = new PartTimeTeacher("Marta", 23, 45);
 
-        university.addTeacher(fullTimeTeacher1);
-        university.addTeacher(fullTimeTeacher2);
-        university.addTeacher(partTimeTeacher1);
-        university.addTeacher(partTimeTeacher2);
+        university.addTeacher(luisaFTT);
+        university.addTeacher(raulFTT);
+        university.addTeacher(valencioPTT);
+        university.addTeacher(martaPTT);
     }
 
     public static void initializeStudents() {
-        Student student1 = new Student("Laura", new GregorianCalendar(2001, 5, 18));
-        Student student2 = new Student("Pedro", new GregorianCalendar(1997, 8, 12));
-        Student student3 = new Student("Ana", new GregorianCalendar(1999, 2, 23));
-        Student student4 = new Student("Antonio", new GregorianCalendar(2003, 4, 1));
-        Student student5 = new Student("Josefa", new GregorianCalendar(2003, 4, 2));
-        Student student6 = new Student("Luis Miguel", new GregorianCalendar(1989, 3, 27));
+        Student lauraS = new Student("Laura", new GregorianCalendar(2001, 5, 18));
+        Student pedroS = new Student("Pedro", new GregorianCalendar(1997, 8, 12));
+        Student anaS = new Student("Ana", new GregorianCalendar(1999, 2, 23));
+        Student antonioS = new Student("Antonio", new GregorianCalendar(2003, 4, 1));
+        Student josefaS = new Student("Josefa", new GregorianCalendar(2003, 4, 2));
+        Student luisMiguelS = new Student("Luis Miguel", new GregorianCalendar(1989, 3, 27));
 
-        university.addStudent(student1);
-        university.addStudent(student2);
-        university.addStudent(student3);
-        university.addStudent(student4);
-        university.addStudent(student5);
-        university.addStudent(student6);
+        university.addStudent(lauraS);
+        university.addStudent(pedroS);
+        university.addStudent(anaS);
+        university.addStudent(antonioS);
+        university.addStudent(josefaS);
+        university.addStudent(luisMiguelS);
     }
 
 }
