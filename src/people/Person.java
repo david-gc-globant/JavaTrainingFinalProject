@@ -5,7 +5,7 @@ public abstract class Person {
     private long id;
     private String name;
 
-    private static long idCounter=0;
+    private static long idCounter = 0;
 
     public Person(String name) {
         this.name = name;

@@ -13,12 +13,6 @@ public class UniversityClass {
 
     private static long codeCounter = 0;
 
-    public UniversityClass(String name, String assignedClassroom, HashMap<Long, Student> students, Teacher teacher) {
-        this(name, assignedClassroom);
-        this.students = students;
-        this.teacher = teacher;
-    }
-
     public UniversityClass(String name, String assignedClassroom) {
         codeCounter++;
         setCode(codeCounter);

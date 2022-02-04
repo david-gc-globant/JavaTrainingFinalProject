@@ -2,7 +2,6 @@ import exceptions.DataNotFoundException;
 import people.Student;
 import people.Teacher;
 
-import javax.xml.crypto.Data;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,18 +19,12 @@ public class University {
         universityClasses = new HashMap<>();
     }
 
-    public University(HashMap<Long, Teacher> teachers, HashMap<Long, Student> students, HashMap<Long, UniversityClass> universityClasses) {
-        this.teachers = teachers;
-        this.students = students;
-        this.universityClasses = universityClasses;
-    }
-
     public List<UniversityClass> getStudentsClasses(long studentID) {
 
         List<UniversityClass> studentsClasses = new LinkedList<>();
 
         for (Map.Entry<Long, UniversityClass> entry : getUniversityClasses().entrySet()) {
-            if(entry.getValue().hasStudent(studentID)) studentsClasses.add(entry.getValue());
+            if (entry.getValue().hasStudent(studentID)) studentsClasses.add(entry.getValue());
         }
 
         return studentsClasses;

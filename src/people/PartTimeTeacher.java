@@ -4,7 +4,7 @@ public class PartTimeTeacher extends Teacher {
 
     private int activeHoursPerWeek;
 
-    public PartTimeTeacher( String name, double baseSalary, int activeHoursPerWeek) {
+    public PartTimeTeacher(String name, double baseSalary, int activeHoursPerWeek) {
         super(name, baseSalary);
         this.activeHoursPerWeek = activeHoursPerWeek;
     }

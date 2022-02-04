@@ -6,7 +6,7 @@ public class Student extends Person {
 
     private Calendar dateOfBirth;
 
-    public Student(String name,  Calendar dateOfBirth) {
+    public Student(String name, Calendar dateOfBirth) {
         super(name);
         this.dateOfBirth = dateOfBirth;
     }
@@ -32,7 +32,7 @@ public class Student extends Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String toString(){
-        return "Id: "+getId()+" · Name: "+getName()+" · Age: "+getAge();
+    public String toString() {
+        return "Id: " + getId() + " · Name: " + getName() + " · Age: " + getAge();
     }
 }

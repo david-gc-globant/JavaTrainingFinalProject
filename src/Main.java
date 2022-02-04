@@ -46,7 +46,7 @@ public class Main {
                     listStudentsClasses();
                     break;
                 case 6:
-                    stopExecution=true;
+                    stopExecution = true;
                     break;
                 default:
                     System.out.println("Please, choose a valid option");
@@ -54,17 +54,17 @@ public class Main {
         }
     }
 
-    public static void listStudentsClasses(){
+    public static void listStudentsClasses() {
         System.out.println("Please, enter the student's ID");
         long studentID = Long.parseLong(scanner.nextLine());
 
-        List<UniversityClass> studentsClasses= university.getStudentsClasses(studentID);
+        List<UniversityClass> studentsClasses = university.getStudentsClasses(studentID);
 
-        if(studentsClasses.isEmpty()){
+        if (studentsClasses.isEmpty()) {
             System.out.println("No classes were found for this ID. ");
-        }else{
-            System.out.println("The student with ID "+studentID+" is included in the following classes: ");
-            for(UniversityClass universityClass: studentsClasses){
+        } else {
+            System.out.println("The student with ID " + studentID + " is included in the following classes: ");
+            for (UniversityClass universityClass : studentsClasses) {
                 System.out.println(universityClass.toString());
             }
         }
@@ -82,7 +82,7 @@ public class Main {
 
         university.addUniversityClass(universityClass);
 
-        boolean stopExecution=false;
+        boolean stopExecution = false;
         while (!stopExecution) {
             try {
                 System.out.println("Teacher's ID: ");
@@ -92,7 +92,7 @@ public class Main {
 
                 universityClass.setTeacher(teacher);
 
-                stopExecution=true;
+                stopExecution = true;
             } catch (DataNotFoundException dataNotFoundException) {
                 System.out.println(dataNotFoundException.getMessage());
             }
@@ -102,7 +102,7 @@ public class Main {
         int numberOfStudents = Integer.parseInt(scanner.nextLine());
 
         for (int i = 1; i <= numberOfStudents; i++) {
-            stopExecution=false;
+            stopExecution = false;
             while (!stopExecution) {
                 try {
                     System.out.println("ID of student " + i);
@@ -110,27 +110,26 @@ public class Main {
                     Student student = university.findStudentById(studentID);
 
                     universityClass.addStudent(student);
-                    stopExecution=true;
+                    stopExecution = true;
                 } catch (DataNotFoundException dataNotFoundException) {
                     System.out.println(dataNotFoundException.getMessage());
                 }
             }
         }
-
     }
 
     public static void addNewStudentToClass() {
 
-        UniversityClass universityClass = new UniversityClass("default","default");
+        UniversityClass universityClass = new UniversityClass("default", "default");
 
-        boolean stopExecution=false;
+        boolean stopExecution = false;
         while (!stopExecution) {
             System.out.println("Please, enter the code of the class.");
             long code = Long.parseLong(scanner.nextLine());
             try {
                 universityClass = university.findUniversityClassByCode(code);
 
-                stopExecution=true;
+                stopExecution = true;
             } catch (DataNotFoundException dataNotFoundException) {
                 System.out.println(dataNotFoundException.getMessage());
             }
@@ -139,7 +138,7 @@ public class Main {
         System.out.println("Please, enter the student's name.");
         String name = scanner.nextLine();
 
-        stopExecution=false;
+        stopExecution = false;
         while (!stopExecution) {
             System.out.println("Please, enter the student's date of birth in the following format: YYYY-MM-DD");
             String dateOfBirth = scanner.nextLine();
@@ -148,7 +147,7 @@ public class Main {
 
             if (dateOfBirthParts.length != 3) {
                 System.out.println("Date of birth not valid.");
-            }else{
+            } else {
                 int yearOfBirth = Integer.parseInt(dateOfBirthParts[0]);
                 int monthOfBirth = Integer.parseInt(dateOfBirthParts[1]) - 1;
                 int dayOfBirth = Integer.parseInt(dateOfBirthParts[2]);
@@ -157,7 +156,7 @@ public class Main {
 
                 university.addStudent(student);
                 universityClass.addStudent(student);
-                stopExecution=true;
+                stopExecution = true;
             }
         }
     }
@@ -251,7 +250,6 @@ public class Main {
         } catch (DataNotFoundException dataNotFoundException) {
             System.out.println(dataNotFoundException.getMessage());
         }
-
     }
 
     public static void initializeTeachers() {
